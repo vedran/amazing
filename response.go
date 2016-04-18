@@ -73,7 +73,8 @@ type AmazonBrowseNode struct {
 }
 
 type AmazonCustomerReviews struct {
-	IFrameURL string
+	IFrameURL  string
+	HasReviews bool
 }
 
 type AmazonEditorialReview struct {
