@@ -61,6 +61,7 @@ type AmazonItem struct {
 	ImageSets        []AmazonImageSet `xml:"ImageSets>ImageSet"`
 	ItemAttributes   AmazonItemAttributes
 	OfferSummary     AmazonItemOfferSummary
+	CustomerReviews  AmazonCustomerReviews   `xml:"CustomerReviews"`
 	EditorialReviews []AmazonEditorialReview `xml:"EditorialReviews>EditorialReview"`
 	BrowseNodes      []AmazonBrowseNode      `xml:"BrowseNodes>BrowseNode"`
 }
@@ -69,6 +70,10 @@ type AmazonBrowseNode struct {
 	BrowseNodeId string             `xml:"BrowseNodeId"`
 	Name         string             `xml:"Name"`
 	Ancestors    []AmazonBrowseNode `xml:"Ancestors>BrowseNode"`
+}
+
+type AmazonCustomerReviews struct {
+	IFrameURL string
 }
 
 type AmazonEditorialReview struct {
