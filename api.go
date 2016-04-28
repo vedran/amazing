@@ -181,7 +181,7 @@ func (a *Amazing) SimilarityLookup(params url.Values) (*AmazonSimilarityLookupRe
 }
 
 func (a *Amazing) Request(params url.Values, result interface{}) error {
-	httpClient := NewTimeoutClient(time.Duration(3*time.Second), time.Duration(3*time.Second))
+	httpClient := NewTimeoutClient(time.Duration(10*time.Second), time.Duration(10*time.Second))
 	merged := a.MergeParamsWithDefaults(params)
 
 	u := url.URL{
@@ -190,6 +190,7 @@ func (a *Amazing) Request(params url.Values, result interface{}) error {
 		Path:     resourcePath,
 		RawQuery: merged.Encode(),
 	}
+
 	r, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return err
